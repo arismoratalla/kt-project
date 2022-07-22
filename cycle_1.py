@@ -30,7 +30,7 @@ st.title("KT Project - Climate Survey")
 
 url = "data/housing.csv"
 survey_df = pd.read_csv('data/ktp_climate_survey_2nd_cycle.csv').reset_index()
-survey_df
+# survey_df
 np_survey_df = np.asarray(survey_df)
 
 managers = survey_df[survey_df["Are you part of Management or Staff?"] == "Management"]
@@ -40,7 +40,7 @@ regions_df = demo_respondents_group = survey_df['What region are you from?']
 regions_df = np.asarray(regions_df)
 
 regions, region_counts = np.unique(regions_df, return_counts=True)
-regions
+# regions
 
 fig1, ax1 = plt.subplots(figsize=(8, 8))
 fig1.subplots_adjust(0.3,0,1,1)
