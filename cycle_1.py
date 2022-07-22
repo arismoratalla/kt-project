@@ -60,6 +60,22 @@ menu = st.sidebar.radio('This web application features the following:', (
 
 if menu == 'Demographics':
     toggle = True
+    
+    fig1, ax1 = plt.subplots(figsize=(8, 8))
+    fig1.subplots_adjust(0.3,0,1,1)
+
+    ax1.axis('equal')
+
+    plt.pie(region_counts, labels = regions, autopct='%1.1f%%', shadow=False, startangle = 90)
+    plt.legend(
+        loc='upper left',
+        prop={'size': 11},
+        bbox_to_anchor=(0.98, 1.05), # x,y coordinates
+        bbox_transform=fig1.transFigure
+    )
+    plt.title('Respondents by Region')
+    plt.axis('equal')
+    plt.show() 
         
 if menu == 'The dataframe':
     toggle = True
