@@ -40,7 +40,7 @@ regions_df = demo_respondents_group = survey_df['What region are you from?']
 regions_df = np.asarray(regions_df)
 
 regions, region_counts = np.unique(regions_df, return_counts=True)
-
+regions
 
 
 
@@ -60,13 +60,6 @@ menu = st.sidebar.radio('This web application features the following:', (
 
 if menu == 'Demographics':
     toggle = True
-    st.sidebar.title('Actions')
-    show = st.sidebar.button('Show/Hide DataFrame')
-    
-    if toggle:
-        st.write(housing_df.head(20))
-    else:
-        st.write(housing_df)
         
 if menu == 'The dataframe':
     toggle = True
