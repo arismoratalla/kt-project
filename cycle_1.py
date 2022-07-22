@@ -9,8 +9,6 @@ import locale
 # import plot_likert
 from math import pi
 
-import matplotlib.pyplot as plt # plotting library
-
 locale.setlocale(locale.LC_ALL, '')
 area = 0 
 bedroom = 0 
