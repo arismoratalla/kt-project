@@ -31,6 +31,22 @@ st.title("KT Project - Climate Survey")
 url = "data/housing.csv"
 survey_df = pd.read_csv('data/ktp_climate_survey_2nd_cycle.csv').reset_index()
 survey_df
+np_survey_df = np.asarray(survey_df)
+
+managers = survey_df[survey_df["Are you part of Management or Staff?"] == "Management"]
+staffs = survey_df[survey_df["Are you part of Management or Staff?"] == "Staff"]
+
+regions_df = demo_respondents_group = survey_df['What region are you from?']
+regions_df = np.asarray(regions_df)
+
+regions, region_counts = np.unique(regions_df, return_counts=True)
+
+
+
+
+
+
+
 
 housing_df = pd.read_csv(url)
 
@@ -42,6 +58,16 @@ menu = st.sidebar.radio('This web application features the following:', (
     'Housing Calculator',
 ))
 
+if menu == 'Demographics':
+    toggle = True
+    st.sidebar.title('Actions')
+    show = st.sidebar.button('Show/Hide DataFrame')
+    
+    if toggle:
+        st.write(housing_df.head(20))
+    else:
+        st.write(housing_df)
+        
 if menu == 'The dataframe':
     toggle = True
     st.sidebar.title('Actions')
