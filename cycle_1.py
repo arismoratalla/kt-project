@@ -24,6 +24,9 @@ is_preferred = 0
 furnishingstatus = 'Unfurnished'
 furnishing_list = [0,0,0]
 
+st.set_page_config(layout="wide")
+
+
 st.title("KT Project - Climate Survey")
 
 url = "data/housing.csv"
@@ -52,23 +55,110 @@ menu = st.sidebar.radio('This web application features the following:', (
 
 if menu == 'Demographics':
     toggle = True
+    col1, col2, col3, col4 = st.columns((2,1,1,1))
     
-    fig1, ax1 = plt.subplots(figsize=(14, 8))
-    fig1.subplots_adjust(0.3,0,1,1)
+    # Management / Staff
+    demo_respondents_group = survey_df['Are you part of Management or Staff?']
+    group_df = np.asarray(demo_respondents_group)
+    group, group_counts = np.unique(group_df, return_counts=True)
 
-    ax1.axis('equal')
+    # Gender
+    demo_respondents_sex = survey_df['What is your sex?']
+    sex_df = np.asarray(demo_respondents_sex)
+    gender, gender_counts = np.unique(sex_df, return_counts=True)
 
-    plt.pie(region_counts, labels = regions, autopct='%1.1f%%', shadow=False, startangle = 90)
-    plt.legend(
-        loc='upper left',
-        prop={'size': 11},
-        bbox_to_anchor=(0.98, 1.05), # x,y coordinates
-        bbox_transform=fig1.transFigure
-    )
-    plt.title('Respondents by Region')
-    plt.axis('equal')
-    # plt.show() # only works in jupyter noteboook
-    st.pyplot(fig1)
+    # Age Group
+    demo_respondents_age_group = survey_df['What age group do you belong to?']
+    age_group_df = np.asarray(demo_respondents_age_group)
+    age_group, age_group_counts = np.unique(age_group_df, return_counts=True)
+
+    # Education
+    demo_respondents_education = survey_df['What is your highest education attainment?']
+    education_df = np.asarray(demo_respondents_education)
+    education, education_counts = np.unique(education_df, return_counts=True)
+    
+    with col1:
+        fig1, ax1 = plt.subplots(figsize=(14, 8))
+        fig1.subplots_adjust(0.3,0,1,1)
+
+        ax1.axis('equal')
+
+        plt.pie(region_counts, labels = regions, autopct='%1.1f%%', shadow=False, startangle = 90)
+        plt.legend(
+            loc='upper left',
+            prop={'size': 11},
+            bbox_to_anchor=(0.98, 1.05), # x,y coordinates
+            bbox_transform=fig1.transFigure
+        )
+        plt.title('Respondents by Region')
+        plt.axis('equal')
+        # plt.show() # only works in jupyter noteboook
+        st.pyplot(fig1)
+    
+    with col2:
+        # Management / Staff
+        fig1, ax1 = plt.subplots(figsize=(4, 4))
+        fig1.subplots_adjust(0.3,0,1,1)
+        ax1.axis('equal')
+        plt.pie(group_counts, labels = group, autopct='%1.1f%%', shadow=False, startangle = 90)
+        plt.legend(
+            loc='upper left',
+            prop={'size': 11},
+            bbox_to_anchor=(0.98, 1.05), # x,y coordinates
+            bbox_transform=fig1.transFigure
+        )
+        plt.title('CS Respondents')
+        plt.axis('equal')
+        st.pyplot(fig1)
+    
+    with col3:
+        # Gender Distribution
+        fig1, ax1 = plt.subplots(figsize=(4, 4))
+        fig1.subplots_adjust(0.3,0,1,1)
+        ax1.axis('equal')
+        plt.pie(gender_counts, labels = gender, autopct='%1.1f%%', shadow=False, startangle = 90)
+        plt.legend(
+            loc='upper left',
+            prop={'size': 11},
+            bbox_to_anchor=(0.98, 1.05), # x,y coordinates
+            bbox_transform=fig1.transFigure
+        )
+        plt.title('Gender Distribution')
+        plt.axis('equal')
+        st.pyplot(fig1)
+    
+    with col4:
+        # Age Group
+        fig1, ax1 = plt.subplots(figsize=(4, 4))
+        fig1.subplots_adjust(0.3,0,1,1)
+        ax1.axis('equal')
+        plt.pie(age_group_counts, labels = age_group, autopct='%1.1f%%', shadow=False, startangle = 90)
+        plt.legend(
+            loc='upper left',
+            prop={'size': 11},
+            bbox_to_anchor=(0.98, 1.05), # x,y coordinates
+            bbox_transform=fig1.transFigure
+        )
+        plt.title('Age Group')
+        plt.axis('equal')
+        st.pyplot(fig1)
+        
+#     col1, col2, = st.columns((2,2))    
+#     with col1:        
+#         # Educational Attainment
+#         fig1, ax1 = plt.subplots(figsize=(4, 4))
+#         fig1.subplots_adjust(0.3,0,1,1)
+#         ax1.axis('equal')
+#         plt.pie(education_counts, labels = education, autopct='%1.1f%%', shadow=False, startangle = 90)
+#         plt.legend(
+#             loc='upper left',
+#             prop={'size': 11},
+#             bbox_to_anchor=(0.98, 1.05), # x,y coordinates
+#             bbox_transform=fig1.transFigure
+#         )
+#         plt.title('Educational Attainment')
+#         plt.axis('equal')
+#         plt.show()
         
 if menu == 'The dataframe':
     toggle = True
