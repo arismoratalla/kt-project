@@ -6,7 +6,7 @@ import seaborn as sns
 import joblib
 import locale
 
-import plot_likert
+# import plot_likert
 from math import pi
 
 import matplotlib.pyplot as plt # plotting library
