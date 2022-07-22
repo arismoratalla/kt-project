@@ -6,6 +6,11 @@ import seaborn as sns
 import joblib
 import locale
 
+import plot_likert
+from math import pi
+
+import matplotlib.pyplot as plt # plotting library
+
 locale.setlocale(locale.LC_ALL, '')
 area = 0 
 bedroom = 0 
@@ -24,10 +29,12 @@ furnishing_list = [0,0,0]
 st.title("KT Project - Climate Survey")
 
 url = "data/housing.csv"
+survey_df = pd.read_csv('data/ktp_climate_survey_2nd_cycle.csv').reset_index()
+survey_df
 
 housing_df = pd.read_csv(url)
 
-st.sidebar.title('About')
+st.sidebar.title('Survey Results')
 
 menu = st.sidebar.radio('This web application features the following:', (
     'Demographics', 
