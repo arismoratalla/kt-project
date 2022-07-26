@@ -185,6 +185,7 @@ if menu == 'Overall Results':
 #     np_managers[:,9:59]
 #     np_staff[:,59:99]
     
+    #get manager questions
     managers_mean = np.mean(np_managers[:,9:59], axis=0)
     
     # Select MEANS for Objective 1 questions
@@ -322,9 +323,7 @@ if menu == 'Overall Results':
         'Objective 5': [managers_objective[4].mean(), staff_objective[4].mean()],
         'Objective 6': [managers_objective[5].mean(), staff_objective[5].mean()],
         'Objective 7': [managers_objective[6].mean(), staff_objective[6].mean()],
-#         'Objective 9': [
-#             managers_objective[8].mean(), 
-#             staff_objective[8].mean()]
+#         'Objective 9': [managers_objective[8].mean(), staff_objective[8].mean()]
         })
 
         ## Draw Dart ##
@@ -586,6 +585,7 @@ if menu == 'Overall Results':
         st.pyplot(fig)
     
     row10_1, row10_2, row10_3 = st.columns((1, 3, 1)) 
+    
     with row10_2:
         bar_objective.append([ label_objective[8], bar_managers_obj[8], bar_staff_obj[8]])
 
@@ -638,17 +638,186 @@ if menu == 'Region IX: Zamboanga Peninsula':
         st.write(firm_df)
 
             
-#     region9_df
     
     # Management / Staff
-#     demo_respondents_group = survey_df['What region are you from?']
-#     group_df = np.asarray(demo_respondents_group)
-#     group, group_counts = np.unique(group_df, return_counts=True)
+    firm_respondents_group = firm_df['Are you part of Management or Staff?']
+    group_df = np.asarray(firm_respondents_group)
+    group, group_counts = np.unique(group_df, return_counts=True)
     
-    # Management / Staff
-#     demo_respondents_group = survey_df['What region are you from?']
-#     group_df = np.asarray(demo_respondents_group)
-#     group, group_counts = np.unique(group_df, return_counts=True)
+    # Gender
+    firm_respondents_sex = firm_df['What is your sex?']
+    sex_df = np.asarray(firm_respondents_sex)
+    gender, gender_counts = np.unique(sex_df, return_counts=True)
+
+    # Age Group
+    firm_respondents_age_group = firm_df['What age group do you belong to?']
+    age_group_df = np.asarray(firm_respondents_age_group)
+    age_group, age_group_counts = np.unique(age_group_df, return_counts=True)
+
+    # Education
+    firm_respondents_education = firm_df['What is your highest education attainment?']
+    education_df = np.asarray(firm_respondents_education)
+    education, education_counts = np.unique(education_df, return_counts=True)
+    
+    st.subheader('Demographics')
+    
+    row1_1, row1_2, row1_3, row1_4 = st.columns((1,1,1,1))
+    with row1_1:
+        # Management / Staff
+        fig1, ax1 = plt.subplots(figsize=(4, 4))
+        fig1.subplots_adjust(0.3,0,1,1)
+        ax1.axis('equal')
+        plt.pie(group_counts, labels = group, autopct='%1.1f%%', shadow=False, startangle = 90)
+        plt.legend(
+            loc='upper left',
+            prop={'size': 11},
+            bbox_to_anchor=(0.98, 1.05), # x,y coordinates
+            bbox_transform=fig1.transFigure
+        )
+        plt.title('CS Respondents')
+        plt.axis('equal')
+        st.pyplot(fig1)
+    
+    with row1_2:        
+        # Educational Attainment
+        fig1, ax1 = plt.subplots(figsize=(4, 4))
+        fig1.subplots_adjust(0.3,0,1,1)
+        ax1.axis('equal')
+        plt.pie(education_counts, labels = education, autopct='%1.1f%%', shadow=False, startangle = 90)
+        plt.legend(
+            loc='upper left',
+            prop={'size': 11},
+            bbox_to_anchor=(0.98, 1.05), # x,y coordinates
+            bbox_transform=fig1.transFigure
+        )
+        plt.title('Educational Attainment')
+        plt.axis('equal')
+        st.pyplot(fig1)
+    
+#     row2_1, row2_2= st.columns((2, 2))
+    with row1_3:
+        # Gender Distribution
+        fig1, ax1 = plt.subplots(figsize=(4, 4))
+        fig1.subplots_adjust(0.3,0,1,1)
+        ax1.axis('equal')
+        plt.pie(gender_counts, labels = gender, autopct='%1.1f%%', shadow=False, startangle = 90)
+        plt.legend(
+            loc='upper left',
+            prop={'size': 11},
+            bbox_to_anchor=(0.98, 1.05), # x,y coordinates
+            bbox_transform=fig1.transFigure
+        )
+        plt.title('Gender Distribution')
+        plt.axis('equal')
+        st.pyplot(fig1)
+    
+    with row1_4:
+        # Age Group
+        fig1, ax1 = plt.subplots(figsize=(4, 4))
+        fig1.subplots_adjust(0.3,0,1,1)
+        ax1.axis('equal')
+        plt.pie(age_group_counts, labels = age_group, autopct='%1.1f%%', shadow=False, startangle = 90)
+        plt.legend(
+            loc='upper left',
+            prop={'size': 11},
+            bbox_to_anchor=(0.98, 1.05), # x,y coordinates
+            bbox_transform=fig1.transFigure
+        )
+        plt.title('Age Group')
+        plt.axis('equal')
+        st.pyplot(fig1)
+    
+    st.subheader('Survey Results')
+    
+    firm_managers = firm_df[firm_df["Are you part of Management or Staff?"] == "Management"]
+    firm_staff = firm_df[firm_df["Are you part of Management or Staff?"] == "Staff"]
+
+    np_firm_managers = np.asarray(firm_managers)
+    np_firm_staff = np.asarray(firm_staff)
+
+    managers_mean = np.mean(np_firm_managers[:,9:59], axis=0)
+    
+    # title
+    objective_title = []
+    objective_title.append("Objective 1: To  determine the employees' extent of understanding of the company's vision, mission, quality policy, purposes and directions")
+    objective_title.append("Objective 2: To find out the employees’ perception of the company’s leadership")
+    objective_title.append("Objective 3: To have an indication of the employee supervisor relationships in the company")
+    objective_title.append("Objective 4: Evaluate  the pervading  conditions for  Total Quality Implementation")
+    objective_title.append("Objective 5: Find out if strategic plans were prepared, evaluated and shared company-wide")
+    objective_title.append("Objective 6: To find out the Company’s willingness to change towards a TQM direction")
+    objective_title.append("Objective 7: Understand the management’s extent of support towards TQM")
+    objective_title.append("Objective 8: To know the Management's TQM perspectives")
+    objective_title.append("Objective 9: To know the Company’s extent of resiliency")
+    
+    # Labels
+    label_objective = []
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    
+    # Managers data
+    firm_managers_obj = []
+    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
+    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
+    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
+    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
+    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
+    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
+    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
+    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
+    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    
+    
+    staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
+    # Staff data
+    firm_staff_obj = []
+    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
+    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
+    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
+    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
+    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
+    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
+    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(['test'])
+    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    
+    
+    firm_objective = []
+    
+    row1_1, row1_2, row1_3 = st.columns((1,3,1))
+    
+    with row1_2:
+    
+        firm_objective.append([ label_objective[0], firm_managers_obj[0], firm_staff_obj[0] ])
+
+        X = np.arange(len(label_objective[0]))
+        width = 0.5  # the width of the bars
+
+        fig, ax = plt.subplots()
+        rects1 = ax.bar(X - width/2, firm_objective[0][1], width, label='Managers')
+        rects2 = ax.bar(X + width/2, firm_objective[0][2], width, label='Staff')
+
+        fig = plt.figure(figsize=(14, 8))
+        ax = fig.add_axes([0,0,1,1])
+
+        ax.set_ylabel('Rating')
+        ax.set_title(objective_title[0])
+        ax.set_xticks(X, firm_objective[0][0])
+
+        ax.bar(X + 0.00, firm_objective[0][1],  width = 0.25)
+        ax.bar(X + 0.25, firm_objective[0][2],  width = 0.25)
+
+        ax.legend(labels=['Managers', 'Staff'])
+
+        ax.bar_label(rects1)
+        ax.bar_label(rects2)
+        st.pyplot(fig)
     
 #     question_labels = ["Q" + str(i) for i in range(1, questions_max)]
 
@@ -658,90 +827,30 @@ if menu == 'Region IX: Zamboanga Peninsula':
 #         ax = plot_likert.plot_likert(data, plot_likert.scales.agree, figsize=(8, questions));
 #         ax.set_title("Figure " + str(f + 1));
     
-    
-if menu == 'The dataframe':
-    toggle = True
-    st.sidebar.title('Actions')
-    show = st.sidebar.button('Show/Hide DataFrame')
-    
-    if toggle:
-        st.write(housing_df.head(20))
-    else:
-        st.write(housing_df)
-    
-if menu == 'Charts':
-    
-    line_chart_data = housing_df[['area', 'price']]
-    area_chart_data = housing_df[['bedrooms', 'price']]
-    bar_chart_data = housing_df[['area', 'stories']]
-    
-    st.line_chart(line_chart_data)
-    st.area_chart(area_chart_data)
-    st.bar_chart(bar_chart_data)
-    
-    st.sidebar.title('Actions')
-    
-if menu == 'Housing Calculator':
-    
-    st.sidebar.title('Parameters')
 
-    area = st.sidebar.slider('Area', 3000, 20000, 5000)
-    bedroom = st.sidebar.slider('Bedrooms', 0, 6, 2)
-    bathroom = st.sidebar.slider('Bathrooms', 0, 6, 2)
-    storey = st.sidebar.slider('Stories', 1, 4, 2)
-    parking = st.sidebar.slider('Parking', 0, 3, 1)
-    
-    mainroad = st.sidebar.radio('Located at Main Road?', ('Yes', 'No'))
-    if mainroad == 'Yes':
-        is_mainroad = 1
-    else:
-        is_mainroad = 0
 
-    guestroom = st.sidebar.radio('Has a Guest Room?', ('Yes', 'No'))
-    if guestroom == 'Yes':
-        has_guestroom = 1
-    else:
-        has_guestroom = 0
-        
-    basement = st.sidebar.radio('Has a Basement?', ('Yes', 'No'))
-    if basement == 'Yes':
-        has_basement = 1
-    else:
-        has_basement = 0
-        
-    heating = st.sidebar.radio('Has a Hot Water Heating?', ('Yes', 'No'))
-    if heating == 'Yes':
-        has_heating = 1
-    else:
-        has_heating = 0
-    
-    airconditioning = st.sidebar.radio('Has Airconditioning?', ('Yes', 'No'))
-    if airconditioning == 'Yes':
-        has_airconditioning = 1
-    else:
-        has_airconditioning = 0
-        
-    prefarea = st.sidebar.radio('Is this a Preferred Area?', ('Yes', 'No'))
-    if prefarea == 'Yes':
-        is_preferred = 1
-    else:
-        is_preferred = 0   
+# def drawchart(title, labels, df):
+#     bar_objective.append([ label_objective[0], bar_managers_obj[0], bar_staff_obj[0] ])
 
-    furnishingstatus = st.sidebar.selectbox("Furnishing Status", ['Furnished', 'Semi-Furnished', 'Unfurnished'])
-    if furnishingstatus == 'Furnished':
-        furnishing_list = [1,0,0]
-    if furnishingstatus == 'Semi-Furnished':
-        furnishing_list = [0,1,0]
-    if furnishingstatus == 'Unfurnished':
-        furnishing_list = [0,0,1]
+#     X = np.arange(len(labels))
+#     width = 0.5  # the width of the bars
 
-    st.subheader('Output Housing Price')
+#     # fig, ax = plt.subplots()
+#     rects1 = ax.bar(X - width/2, bar_objective[0][1], width, label='Managers')
+#     rects2 = ax.bar(X + width/2, bar_objective[0][2], width, label='Staff')
 
-    filename = 'model/housing_model3.sav'
-    loaded_model = joblib.load(filename)
+#     fig = plt.figure(figsize=(14, 8))
+#     ax = fig.add_axes([0,0,1,1])
 
-    prediction = np.round(loaded_model.predict([[area, bedroom, bathroom, storey, parking, is_mainroad, has_guestroom, has_basement, has_heating, has_airconditioning, is_preferred]+  furnishing_list])[0])
+#     ax.set_ylabel('Rating')
+#     ax.set_title(title)
+#     ax.set_xticks(X, bar_objective[0][0])
 
-    pricing = locale.format("%d", prediction, grouping=True)
+#     ax.bar(X + 0.00, bar_objective[0][1],  width = 0.25)
+#     ax.bar(X + 0.25, bar_objective[0][2],  width = 0.25)
 
-    st.write(f"Predicted Housing Price is: {pricing}")
+#     ax.legend(labels=['Managers', 'Staff'])
+
+#     ax.bar_label(rects1)
+#     ax.bar_label(rects2)
+#     st.pyplot(fig)
