@@ -11,26 +11,12 @@ import locale
 from math import pi
 
 locale.setlocale(locale.LC_ALL, '')
-area = 0 
-bedroom = 0 
-bathroom =0 
-storey = 0 
-parking = 0 
-is_mainroad = 0 
-has_guestroom = 0 
-has_basement = 0 
-has_heating = 0 
-has_airconditioning = 0 
-is_preferred = 0 
-furnishingstatus = 'Unfurnished'
-furnishing_list = [0,0,0]
 
 st.set_page_config(layout="wide")
 
 
 st.title("KT Project - Climate Survey")
 
-url = "data/housing.csv"
 survey_df = pd.read_csv('data/ktp_climate_survey_2nd_cycle.csv').reset_index()
 # survey_df
 np_survey_df = np.asarray(survey_df)
@@ -44,26 +30,91 @@ regions_df = np.asarray(regions_df)
 regions, region_counts = np.unique(regions_df, return_counts=True)
 # regions
 
-housing_df = pd.read_csv(url)
-
 st.sidebar.title('Survey Results')
 
-for r in regions:
-        print(r)
-        
-menu = st.sidebar.radio('This web application features the following:', (
-    'Demographics', 
-    'Overall Results',
-#     'Housing Calculator',
+regs = [
     'Cordillera Administrative Region (CAR)',
+    'National Capital Region (NCR)',
+    'Region I: Ilocos Region',
     'Region II: Cagayan Valley', 
     'Region III: Central Luzon',
+    'Region IV-A: Calabarzon',
     'Region IV-B: (Mimaropa) Southwestern Tagalog Region',
-    'Region IX: Zamboanga Peninsula', 
+    'Region V: Bicol Region',
+    'Region VI: Western Visayas',
     'Region VII: Central Visayas',
+    'Region VIII: Eastern Visayas',
+    'Region IX: Zamboanga Peninsula', 
     'Region X: Northern Mindanao', 
+    'Region XI: Davao Region',
+    'Region XII: Soccsksargen',
+    'Region XIII: Caraga'
+]
+
+
+# regs
+beneficiaries = []
+beneficiaries.append(["VFM Food Products"])
+beneficiaries.append(["Aretei Foods Corp."])
+beneficiaries.append(["Nutridense Food Manufacturing Corp"])
+beneficiaries.append(["Agri-Component Machineries and Construction Corporation (AMCC)", "Honey Buns Bakeshop"])
+beneficiaries.append(["Angel Farmers Gourmet Food Corporation"])
+beneficiaries.append(["Farmtec Foods Inc.", "C&H Cosmetics Industry"])
+beneficiaries.append(["Rejanos Bakery"])
+beneficiaries.append(["J. Emmanuel Pastries"])
+beneficiaries.append(["Herbanext Laboratories Inc."])
+beneficiaries.append(["Suki Trading Corporation"])
+beneficiaries.append(["Rodriguez Burger and Bread Corporation"])
+beneficiaries.append(["Diamond Noodles Factory", "Woodtech Builders"])
+beneficiaries.append(["SLERS Industries Inc."])
+beneficiaries.append(["Malagos Food Inc.", "Woodworks Collections, Inc."])
+beneficiaries.append(["Kablon Farm Food Corporation"])
+beneficiaries.append(["MAFFISCO-MPC"])
+# for beneficiary in beneficiaries:
+#     beneficiary
+
+
+
+
+menu = st.sidebar.radio('Consolidated Results:', (
+    'Demographics', 
+    'Overall Results',
+    'Cordillera Administrative Region (CAR)',
+    'National Capital Region (NCR)',
+    'Region I: Ilocos Region',
+    'Region II: Cagayan Valley', 
+    'Region III: Central Luzon',
+    'Region IV-A: Calabarzon',
+    'Region IV-B: (Mimaropa) Southwestern Tagalog Region',
+    'Region V: Bicol Region',
+    'Region VI: Western Visayas',
+    'Region VII: Central Visayas',
+    'Region VIII: Eastern Visayas',
+    'Region IX: Zamboanga Peninsula', 
+    'Region X: Northern Mindanao', 
+    'Region XI: Davao Region',
+    'Region XII: Soccsksargen',
     'Region XIII: Caraga'
 ))
+
+# menu = st.sidebar.radio('Regional Results', (
+#     'Cordillera Administrative Region (CAR)',
+#     'National Capital Region (NCR)',
+#     'Region I: Ilocos Region',
+#     'Region II: Cagayan Valley', 
+#     'Region III: Central Luzon',
+#     'Region IV-A: Calabarzon',
+#     'Region IV-B: (Mimaropa) Southwestern Tagalog Region',
+#     'Region V: Bicol Region',
+#     'Region VI: Western Visayas',
+#     'Region VII: Central Visayas',
+#     'Region VIII: Eastern Visayas',
+#     'Region IX: Zamboanga Peninsula', 
+#     'Region X: Northern Mindanao', 
+#     'Region XI: Davao Region'
+#     'Region XII: Soccsksargen'
+#     'Region XIII: Caraga',
+# ))
 
 if menu == 'Demographics':
     toggle = True
@@ -194,36 +245,25 @@ if menu == 'Overall Results':
     managers_objective[0] = np.asarray(managers_objective[0])
 
     # Select MEANS for Objective 2 questions
-#     managers_objective.append([managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[24], managers_mean[33], managers_mean[34]])
     managers_objective.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[24], managers_mean[33], managers_mean[34]]))
 
-    # Select MEANS for Objective 3 questions
-#     managers_objective_3 = [managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22]]
     managers_objective.append(np.asarray([managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22]]))
 
-    # Select MEANS for Objective 4 questions
-#     managers_objective_4 = [managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38]]
     managers_objective.append(np.asarray([managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38]]))
 
-#     # Select MEANS for Objective 5 questions
-#     managers_objective_5 = [managers_mean[0], managers_mean[10], managers_mean[30], managers_mean[31], managers_mean[39]]
     managers_objective.append(np.asarray([managers_mean[0], managers_mean[10], managers_mean[30], managers_mean[31], managers_mean[39]]))
 
 #     # Select MEANS for Objective 6 questions
-#     managers_objective_6 = [managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32]]
     managers_objective.append(np.asarray([managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32]]))
 
 #     # Select MEANS for Objective 7 questions
-#     managers_objective_7 = [managers_mean[12], managers_mean[13], managers_mean[17], managers_mean[27]]
     managers_objective.append(np.asarray([managers_mean[12], managers_mean[13], managers_mean[17], managers_mean[27]]))
 
 #     # Select MEANS for Objective 7 questions
-#     managers_objective_8 = [managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49]]
     managers_objective.append(np.asarray([managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49]]))
 
     managers_objective.append(['test'])
 #     # Select MEANS for Objective 9 questions
-#     managers_objective_9 = [managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35]]
     managers_objective.append(np.asarray([managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35]]))
     # managers_objective_9
     
@@ -232,15 +272,12 @@ if menu == 'Overall Results':
     
     staff_objective = []
     # Select MEANS for Objective 1 questions
-#     staff_objective_1 = [staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37]]
     staff_objective.append(np.asarray([staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37]]))
 
     # Select MEANS for Objective 2 questions
-#     staff_objective_2 = [staff_mean[3], staff_mean[6], staff_mean[8], staff_mean[24], staff_mean[33], staff_mean[34]]
     staff_objective.append(np.asarray([staff_mean[3], staff_mean[6], staff_mean[8], staff_mean[24], staff_mean[33], staff_mean[34]]))
 
     # Select MEANS for Objective 3 questions
-#     staff_objective_3 = [staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22]]
     staff_objective.append(np.asarray([staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22]]))
 
     # Select MEANS for Objective 4 questions
@@ -248,24 +285,17 @@ if menu == 'Overall Results':
     staff_objective.append(np.asarray([staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38]]))
 
 #     # Select MEANS for Objective 5 questions
-#     staff_objective_5 = [staff_mean[0], staff_mean[10], staff_mean[30], staff_mean[31], staff_mean[39]]
     staff_objective.append(np.asarray([staff_mean[0], staff_mean[10], staff_mean[30], staff_mean[31], staff_mean[39]]))
 
 #     # Select MEANS for Objective 6 questions
-#     staff_objective_6 = [staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32]]
     staff_objective.append(np.asarray([staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32]]))
 
 #     # Select MEANS for Objective 7 questions
-#     staff_objective_7 = [staff_mean[12], staff_mean[13], staff_mean[17], staff_mean[27]]
     staff_objective.append(np.asarray([staff_mean[12], staff_mean[13], staff_mean[17], staff_mean[27]]))
 
     staff_objective.append(['test'])
 #     # Select MEANS for Objective 9 questions
-#     staff_objective_9 = [staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35]]
     staff_objective.append(np.asarray([staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35]]))
-    
-#     row1_1, row1_2 = st.columns((2, 2))
-    
     
     
     # Set Bargraph Data
@@ -305,7 +335,6 @@ if menu == 'Overall Results':
     bar_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
     bar_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
     bar_staff_obj.append(['test'])
-#     bar_staff_obj.append([ staff_mean[40], staff_mean[41], staff_mean[42], staff_mean[43], staff_mean[44], staff_mean[45], staff_mean[46], staff_mean[47], staff_mean[48], staff_mean[49] ])
     bar_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
 
     row1_1, row1_2, row1_3 = st.columns((1, 3, 1))
@@ -610,40 +639,57 @@ if menu == 'Overall Results':
         ax.bar_label(rects2)
         st.pyplot(fig)
         
-
+# for index, reg in enumerate(regs):
+# #     index , reg, beneficiaries[index]
+    
 if menu == 'Region IX: Zamboanga Peninsula':
     region = 'Region IX: Zamboanga Peninsula'
+# if menu == reg:
+#     region = reg
     st.header(region)
-    
     toggle = True
-    region9_df = survey_df[survey_df["What region are you from?"] == region]
-    
-    firm_df = survey_df[survey_df["Name of Your Company:"] == 'Diamond Noodles Factory']
-    
-    st.sidebar.title('Actions')
-    
+
+#         for beneficiary in beneficiaries[index]:
+#             toggle = st.sidebar.button(beneficiary)
     toggle = st.sidebar.button('Diamond Noodles Factory')
     toggle = st.sidebar.button('Wood Tech Builders')
-    
+
+
+    region9_df = survey_df[survey_df["What region are you from?"] == region]
+
+    firm_df = survey_df[survey_df["Name of Your Company:"] == 'Diamond Noodles Factory']
+
+    st.sidebar.title('Actions')
+
+#         if toggle:
+# #                 firm = 'Wood Tech Builders'
+#             st.subheader(beneficiary)
+#             firm_df = survey_df[survey_df["Name of Your Company:"] == beneficiary[0]]
+#             st.write(firm_df)
+
+#         else:
+# #                 firm = 'Diamond Noodles Factory'
+#             st.subheader(beneficiary)
+#             firm_df = survey_df[survey_df["Name of Your Company:"] == beneficiary[1]]
+#             st.write(firm_df)
+
     if toggle:
         firm = 'Wood Tech Builders'
         st.subheader(firm)
         firm_df = survey_df[survey_df["Name of Your Company:"] == firm]
         st.write(firm_df)
-    
+
     else:
         firm = 'Diamond Noodles Factory'
         st.subheader(firm)
         firm_df = survey_df[survey_df["Name of Your Company:"] == firm]
         st.write(firm_df)
 
-            
-    
     # Management / Staff
     firm_respondents_group = firm_df['Are you part of Management or Staff?']
     group_df = np.asarray(firm_respondents_group)
     group, group_counts = np.unique(group_df, return_counts=True)
-    
+
     # Gender
     firm_respondents_sex = firm_df['What is your sex?']
     sex_df = np.asarray(firm_respondents_sex)
@@ -658,9 +704,9 @@ if menu == 'Region IX: Zamboanga Peninsula':
     firm_respondents_education = firm_df['What is your highest education attainment?']
     education_df = np.asarray(firm_respondents_education)
     education, education_counts = np.unique(education_df, return_counts=True)
-    
+
     st.subheader('Demographics')
-    
+
     row1_1, row1_2, row1_3, row1_4 = st.columns((1,1,1,1))
     with row1_1:
         # Management / Staff
@@ -677,7 +723,7 @@ if menu == 'Region IX: Zamboanga Peninsula':
         plt.title('CS Respondents')
         plt.axis('equal')
         st.pyplot(fig1)
-    
+
     with row1_2:        
         # Educational Attainment
         fig1, ax1 = plt.subplots(figsize=(4, 4))
@@ -693,7 +739,7 @@ if menu == 'Region IX: Zamboanga Peninsula':
         plt.title('Educational Attainment')
         plt.axis('equal')
         st.pyplot(fig1)
-    
+
 #     row2_1, row2_2= st.columns((2, 2))
     with row1_3:
         # Gender Distribution
@@ -710,7 +756,7 @@ if menu == 'Region IX: Zamboanga Peninsula':
         plt.title('Gender Distribution')
         plt.axis('equal')
         st.pyplot(fig1)
-    
+
     with row1_4:
         # Age Group
         fig1, ax1 = plt.subplots(figsize=(4, 4))
@@ -726,9 +772,9 @@ if menu == 'Region IX: Zamboanga Peninsula':
         plt.title('Age Group')
         plt.axis('equal')
         st.pyplot(fig1)
-    
+
     st.subheader('Survey Results')
-    
+
     firm_managers = firm_df[firm_df["Are you part of Management or Staff?"] == "Management"]
     firm_staff = firm_df[firm_df["Are you part of Management or Staff?"] == "Staff"]
 
@@ -736,7 +782,7 @@ if menu == 'Region IX: Zamboanga Peninsula':
     np_firm_staff = np.asarray(firm_staff)
 
     managers_mean = np.mean(np_firm_managers[:,9:59], axis=0)
-    
+
     # title
     objective_title = []
     objective_title.append("Objective 1: To  determine the employees' extent of understanding of the company's vision, mission, quality policy, purposes and directions")
@@ -748,7 +794,7 @@ if menu == 'Region IX: Zamboanga Peninsula':
     objective_title.append("Objective 7: Understand the management’s extent of support towards TQM")
     objective_title.append("Objective 8: To know the Management's TQM perspectives")
     objective_title.append("Objective 9: To know the Company’s extent of resiliency")
-    
+
     # Labels
     label_objective = []
     label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
@@ -760,7 +806,7 @@ if menu == 'Region IX: Zamboanga Peninsula':
     label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
     label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
     label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
-    
+
     # Managers data
     firm_managers_obj = []
     firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
@@ -772,8 +818,8 @@ if menu == 'Region IX: Zamboanga Peninsula':
     firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
     firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
     firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
-    
-    
+
+
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
@@ -786,71 +832,45 @@ if menu == 'Region IX: Zamboanga Peninsula':
     firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
     firm_staff_obj.append(['test'])
     firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
-    
-    
+
+
     firm_objective = []
-    
-    row1_1, row1_2, row1_3 = st.columns((1,3,1))
-    
-    with row1_2:
-    
-        firm_objective.append([ label_objective[0], firm_managers_obj[0], firm_staff_obj[0] ])
 
-        X = np.arange(len(label_objective[0]))
-        width = 0.5  # the width of the bars
+    i = 0
+    while i < len(objective_title):
 
-        fig, ax = plt.subplots()
-        rects1 = ax.bar(X - width/2, firm_objective[0][1], width, label='Managers')
-        rects2 = ax.bar(X + width/2, firm_objective[0][2], width, label='Staff')
+        row1_1, row1_2, row1_3 = st.columns((1,3,1))
 
-        fig = plt.figure(figsize=(14, 8))
-        ax = fig.add_axes([0,0,1,1])
+        with row1_2:
+            firm_objective.append([ label_objective[i], firm_managers_obj[i], firm_staff_obj[i] ])
 
-        ax.set_ylabel('Rating')
-        ax.set_title(objective_title[0])
-        ax.set_xticks(X, firm_objective[0][0])
+            X = np.arange(len(label_objective[i]))
+            width = 0.5  # the width of the bars
 
-        ax.bar(X + 0.00, firm_objective[0][1],  width = 0.25)
-        ax.bar(X + 0.25, firm_objective[0][2],  width = 0.25)
+            fig, ax = plt.subplots()
+            rects1 = ax.bar(X - width/2, firm_objective[i][1], width, label='Managers')
+            if i != 7:
+                rects2 = ax.bar(X + width/2, firm_objective[i][2], width, label='Staff')
 
-        ax.legend(labels=['Managers', 'Staff'])
+            fig = plt.figure(figsize=(14, 8))
+            ax = fig.add_axes([0,0,1,1])
 
-        ax.bar_label(rects1)
-        ax.bar_label(rects2)
-        st.pyplot(fig)
-    
-#     question_labels = ["Q" + str(i) for i in range(1, questions_max)]
+            ax.set_ylabel('Rating')
+            ax.set_title(objective_title[i])
+            ax.set_xticks(X, firm_objective[i][0])
 
-#     for f, (respondents, questions) in enumerate(graphs):
-#         responses = get_random_responses(respondents, questions)
-#         data = pd.DataFrame(responses, columns=question_labels[0:questions])
-#         ax = plot_likert.plot_likert(data, plot_likert.scales.agree, figsize=(8, questions));
-#         ax.set_title("Figure " + str(f + 1));
-    
+            ax.bar(X + 0.00, firm_objective[i][1],  width = 0.25)
+            if i != 7:
+                ax.bar(X + 0.25, firm_objective[i][2],  width = 0.25)
 
+            if i != 7:
+                ax.legend(labels=['Managers', 'Staff'])
+            else:
+                ax.legend(labels=['Managers'])
 
-# def drawchart(title, labels, df):
-#     bar_objective.append([ label_objective[0], bar_managers_obj[0], bar_staff_obj[0] ])
+            ax.bar_label(rects1)
+            ax.bar_label(rects2)
+            st.pyplot(fig)
 
-#     X = np.arange(len(labels))
-#     width = 0.5  # the width of the bars
-
-#     # fig, ax = plt.subplots()
-#     rects1 = ax.bar(X - width/2, bar_objective[0][1], width, label='Managers')
-#     rects2 = ax.bar(X + width/2, bar_objective[0][2], width, label='Staff')
-
-#     fig = plt.figure(figsize=(14, 8))
-#     ax = fig.add_axes([0,0,1,1])
-
-#     ax.set_ylabel('Rating')
-#     ax.set_title(title)
-#     ax.set_xticks(X, bar_objective[0][0])
-
-#     ax.bar(X + 0.00, bar_objective[0][1],  width = 0.25)
-#     ax.bar(X + 0.25, bar_objective[0][2],  width = 0.25)
-
-#     ax.legend(labels=['Managers', 'Staff'])
-
-#     ax.bar_label(rects1)
-#     ax.bar_label(rects2)
-#     st.pyplot(fig)
+        i += 1
+        
