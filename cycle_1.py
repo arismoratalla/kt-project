@@ -612,8 +612,11 @@ if menu == 'Overall Results':
         
 
 if menu == 'Region IX: Zamboanga Peninsula':
-#     firm = 'Diamond Noodles Factory'
+    firm = 'Diamond Noodles Factory'
     region = 'Region IX: Zamboanga Peninsula'
+    st.header(region)
+    st.subheader(firm)
+    
     toggle = True
     region9_df = survey_df[survey_df["What region are you from?"] == region]
     
@@ -625,11 +628,15 @@ if menu == 'Region IX: Zamboanga Peninsula':
     toggle = st.sidebar.button('Wood Tech Builders')
     
     if toggle:
-        firm_df = survey_df[survey_df["Name of Your Company:"] == 'Wood Tech Builders']
+        firm = 'Wood Tech Builders'
+        st.subheader(firm)
+        firm_df = survey_df[survey_df["Name of Your Company:"] == firm]
         st.write(firm_df)
     
     else:
-        firm_df = survey_df[survey_df["Name of Your Company:"] == 'Diamond Noodles Factory']
+        firm = 'Diamond Noodles Factory'
+        st.subheader(firm)
+        firm_df = survey_df[survey_df["Name of Your Company:"] == firm]
         st.write(firm_df)
 
             
