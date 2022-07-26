@@ -612,10 +612,8 @@ if menu == 'Overall Results':
         
 
 if menu == 'Region IX: Zamboanga Peninsula':
-    firm = 'Diamond Noodles Factory'
     region = 'Region IX: Zamboanga Peninsula'
     st.header(region)
-    st.subheader(firm)
     
     toggle = True
     region9_df = survey_df[survey_df["What region are you from?"] == region]
