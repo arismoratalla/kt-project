@@ -1727,7 +1727,7 @@ if menu == 'Region IV-A: Calabarzon':
         firm_df = survey_df[survey_df["Name of Your Company:"] == firm]
         st.write(firm_df)
     else:
-        firm = 'Farmtec Foods Inc.'
+        firm = 'C&H Cosmetics Industry'
         st.subheader(firm)
         firm_df = survey_df[survey_df["Name of Your Company:"] == firm]
         st.write(firm_df)
