@@ -96,29 +96,6 @@ menu = st.sidebar.radio('Consolidated Results:', (
     'Region XIII: Caraga'
 ))
 
-# menu = st.sidebar.radio('Regional Results', (
-#     'Cordillera Administrative Region (CAR)',
-#     'National Capital Region (NCR)',
-#     'Region I: Ilocos Region',
-#     'Region II: Cagayan Valley', 
-#     'Region III: Central Luzon',
-#     'Region IV-A: Calabarzon',
-#     'Region IV-B: (Mimaropa) Southwestern Tagalog Region',
-#     'Region V: Bicol Region',
-#     'Region VI: Western Visayas',
-#     'Region VII: Central Visayas',
-#     'Region VIII: Eastern Visayas',
-#     'Region IX: Zamboanga Peninsula', 
-#     'Region X: Northern Mindanao', 
-#     'Region XI: Davao Region'
-#     'Region XII: Soccsksargen'
-#     'Region XIII: Caraga',
-# ))
-
-    
-
-
-
 if menu == 'Demographics':
     toggle = True
     
@@ -355,7 +332,9 @@ if menu == 'Overall Results':
         'Objective 5': [managers_objective[4].mean(), staff_objective[4].mean()],
         'Objective 6': [managers_objective[5].mean(), staff_objective[5].mean()],
         'Objective 7': [managers_objective[6].mean(), staff_objective[6].mean()],
-#         'Objective 9': [managers_objective[8].mean(), staff_objective[8].mean()]
+        'Objective 9': [
+            managers_objective[8].mean(), 
+            staff_objective[8].mean()]
         })
 
         ## Draw Dart ##
@@ -786,30 +765,92 @@ if menu == 'Cordillera Administrative Region (CAR)':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
 
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
     firm_objective = []
 
@@ -997,31 +1038,93 @@ if menu == 'National Capital Region (NCR)':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
 
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
 
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
+        
     firm_objective = []
 
     i = 0
@@ -1208,29 +1311,92 @@ if menu == 'Region I: Ilocos Region':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -1426,29 +1592,92 @@ if menu == 'Region II: Cagayan Valley':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -1638,29 +1867,92 @@ if menu == 'Region III: Central Luzon':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -1856,29 +2148,92 @@ if menu == 'Region IV-A: Calabarzon':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -2068,29 +2423,92 @@ if menu == 'Region IV-B: (Mimaropa) Southwestern Tagalog Region':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -2280,29 +2698,92 @@ if menu == 'Region V: Bicol Region':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -2492,29 +2973,92 @@ if menu == 'Region VI: Western Visayas':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -2704,29 +3248,92 @@ if menu == 'Region VII: Central Visayas':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -2916,29 +3523,92 @@ if menu == 'Region VIII: Eastern Visayas':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -3136,31 +3806,95 @@ if menu == 'Region IX: Zamboanga Peninsula':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
-
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
+    firm_staff_obj.append(np.asarray(['test']))
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
 
 
+    
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
+    
+    
     firm_objective = []
 
     i = 0
@@ -3347,29 +4081,92 @@ if menu == 'Region X: Northern Mindanao':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -3564,29 +4361,92 @@ if menu == 'Region XI: Davao Region':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -3775,29 +4635,92 @@ if menu == 'Region XII: Soccsksargen':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
@@ -3986,29 +4909,92 @@ if menu == 'Region XIII: Caraga':
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    firm_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    firm_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    firm_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    firm_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    firm_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    firm_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    firm_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    firm_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
 
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    firm_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    firm_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    firm_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    firm_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    firm_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    firm_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
     firm_staff_obj.append(['test'])
-    firm_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+
+    radar_df = pd.DataFrame({
+        'group': ['Manager','Staff'],
+        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
+        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
+        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
+        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
+        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
+        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
+        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
+        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        })
+
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
+        ## Draw Dart ##
+
+        # number of variable
+        categories=list(radar_df)[1:]
+        N = len(categories)
+
+        # What will be the angle of each axis in the plot? (we divide the plot / number of variable)
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
+
+        # Initialise the spider plot
+        fig = plt.figure(figsize=(14, 10))
+        ax = plt.subplot(111, polar=True)
+
+        # If you want the first axis to be on top:
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angles[:-1], categories)
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks([1,2,3,4,5,6,7], ["1.0","2.0","3.0","4.0","5.0","6.0","7.0"], color="grey", size=7)
+        plt.ylim(0,)
+
+        #     categories
+
+        ## Plot Data ##
+
+        # Manager
+        values=radar_df.loc[0].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Manager")
+        ax.fill(angles, values, 'b', alpha=0.1)
+
+        # # Staff
+        values=radar_df.loc[1].drop('group').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, linewidth=1, linestyle='solid', label="Staff")
+        ax.fill(angles, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(1, 1))
+
+        # Show the graph
+        st.pyplot(fig)
 
 
     firm_objective = []
