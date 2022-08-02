@@ -242,7 +242,7 @@ if menu == 'Overall Results':
 #     # Select MEANS for Objective 7 questions
     managers_objective.append(np.asarray([managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49]]))
 
-    managers_objective.append(['test'])
+#     managers_objective.append(['test'])
 #     # Select MEANS for Objective 9 questions
     managers_objective.append(np.asarray([managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35]]))
     # managers_objective_9
