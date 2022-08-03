@@ -15,7 +15,12 @@ locale.setlocale(locale.LC_ALL, '')
 
 # st.set_page_config(layout="wide")
 
-st.title("KT Project - Climate Survey")
+# st.title("KT Project - Climate Survey")
+st.set_page_config(
+    page_title="KT Project - Climate Survey",
+    layout="wide"
+#     page_icon="👋",
+)
 
 survey_df = pd.read_csv('data/ktp_climate_survey_2nd_cycle.csv').reset_index()
 np_survey_df = np.asarray(survey_df)
