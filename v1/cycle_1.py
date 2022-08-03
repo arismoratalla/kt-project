@@ -9,6 +9,7 @@ import locale
 
 # import plot_likert
 from math import pi
+import plot_likert
 
 locale.setlocale(locale.LC_ALL, '')
 
@@ -97,6 +98,14 @@ menu = st.sidebar.radio('Consolidated Results:', (
 ))
 
 if menu == 'Demographics':
+    
+#     rng = np.random.default_rng(seed=42)
+#     data = pd.DataFrame(rng.choice(plot_likert.scales.agree, (10,2)), columns=['Q1','Q2'])
+#     fig, plot_likert = plt.figure(figsize=(10, 4))
+#     plot_likert.plot_likert(data, plot_likert.scales.agree);
+    
+#     st.pyplot(fig)
+    
     toggle = True
     
     # Management / Staff
@@ -137,7 +146,7 @@ if menu == 'Demographics':
         plt.title('Respondents by Region')
         plt.axis('equal')
         # plt.show() # only works in jupyter noteboook
-        st.pyplot(fig1)
+#         st.pyplot(fig1)
         
     with row1_2:        
         # Educational Attainment
