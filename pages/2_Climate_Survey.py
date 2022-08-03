@@ -144,7 +144,7 @@ if menu == 'Demographics':
         plt.title('Respondents by Region')
         plt.axis('equal')
         # plt.show() # only works in jupyter noteboook
-#         st.pyplot(fig1)
+        st.pyplot(fig1)
         
     with row1_2:        
         # Educational Attainment
