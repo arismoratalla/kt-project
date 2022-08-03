@@ -9,7 +9,7 @@ import locale
 
 # import plot_likert
 from math import pi
-import plot_likert
+# import plot_likert
 
 locale.setlocale(locale.LC_ALL, '')
 
