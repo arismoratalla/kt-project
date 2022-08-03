@@ -34,7 +34,7 @@ regions_df = np.asarray(regions_df)
 regions, region_counts = np.unique(regions_df, return_counts=True)
 # regions
 
-st.sidebar.title('Survey Results')
+# st.sidebar.title('Survey Results')
 
 regs = [
     'Cordillera Administrative Region (CAR)',
@@ -79,7 +79,7 @@ beneficiaries.append(["MAFFISCO-MPC"])
 
 
 
-menu = st.sidebar.radio('Consolidated Results:', (
+menu = st.sidebar.radio('Survey Results:', (
     'Demographics', 
     'Overall Results',
     'Cordillera Administrative Region (CAR)',
