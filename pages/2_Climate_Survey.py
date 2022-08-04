@@ -2133,7 +2133,7 @@ if menu == 'Region IV-A: Calabarzon':
     np_firm_staff = np.asarray(firm_staff)
 
     managers_mean = np.mean(np_firm_managers[:,9:59], axis=0)
-
+    
     # title
     objective_title = []
     objective_title.append("Objective 1: To  determine the employees' extent of understanding of the company's vision, mission, quality policy, purposes and directions")
