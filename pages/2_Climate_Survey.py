@@ -2848,11 +2848,11 @@ if menu == 'Region VI: Western Visayas':
     toggle = True
 
     st.sidebar.title('Actions')
-    toggle = st.sidebar.button('Herbanext Laboratories Inc.')
+    toggle = st.sidebar.button('Herbanext Laboratories, Inc.')
 
     region4b_df = survey_df[survey_df["What region are you from?"] == region]
 
-    firm_df = survey_df[survey_df["Name of Your Company:"] == 'Herbanext Laboratories Inc.']
+    firm_df = survey_df[survey_df["Name of Your Company:"] == 'Herbanext Laboratories, Inc.']
     firm_df
 
     if toggle:
