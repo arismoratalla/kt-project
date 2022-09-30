@@ -294,61 +294,93 @@ if menu == 'Overall Results':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
-    bar_managers_obj = []
-    bar_managers_obj.append([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ])
-    bar_managers_obj.append([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ])
-    bar_managers_obj.append([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ])
-    bar_managers_obj.append([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ])
-    bar_managers_obj.append([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ])
-    bar_managers_obj.append([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ])
-    bar_managers_obj.append([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ])
-    bar_managers_obj.append([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ])
-    bar_managers_obj.append([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ])
-
-
-    # Staff data
-    bar_staff_obj = []
-    bar_staff_obj.append([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ])
-    bar_staff_obj.append([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ])
-    bar_staff_obj.append([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ])
-    bar_staff_obj.append([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ])
-    bar_staff_obj.append([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ])
-    bar_staff_obj.append([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ])
-    bar_staff_obj.append([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ])
-    bar_staff_obj.append(['test'])
-    bar_staff_obj.append([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ])
-
-    row1_1, row1_2, row1_3 = st.columns((1, 3, 1))
+    firm_managers_obj = []
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
     
-    with row1_2:
-        # Radar Graph
-        # Set data
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
-        radar_df = pd.DataFrame({
+    staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
+    # Staff data
+    firm_staff_obj = []
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
+
+
+    
+    radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [managers_objective[0].mean(), staff_objective[0].mean()],
-        'Objective 2': [managers_objective[1].mean(), staff_objective[1].mean()],
-        'Objective 3': [managers_objective[2].mean(), staff_objective[2].mean()],
-        'Objective 4': [managers_objective[3].mean(), staff_objective[3].mean()],
-        'Objective 5': [managers_objective[4].mean(), staff_objective[4].mean()],
-        'Objective 6': [managers_objective[5].mean(), staff_objective[5].mean()],
-        'Objective 7': [managers_objective[6].mean(), staff_objective[6].mean()],
-        'Objective 9': [
-            managers_objective[8].mean(), 
-            staff_objective[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
+    row0_1, row0_2, row0_3 = st.columns((1,3,1))
+    
+    with row0_2:
         ## Draw Dart ##
 
         # number of variable
@@ -765,52 +797,88 @@ if menu == 'Cordillera Administrative Region (CAR)':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -1038,52 +1106,88 @@ if menu == 'National Capital Region (NCR)':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -1311,52 +1415,88 @@ if menu == 'Region I: Ilocos Region':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -1592,52 +1732,88 @@ if menu == 'Region II: Cagayan Valley':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -1867,52 +2043,88 @@ if menu == 'Region III: Central Luzon':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -2148,52 +2360,88 @@ if menu == 'Region IV-A: Calabarzon':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -2423,52 +2671,88 @@ if menu == 'Region IV-B: (Mimaropa) Southwestern Tagalog Region':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -2698,52 +2982,88 @@ if menu == 'Region V: Bicol Region':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -3248,52 +3568,88 @@ if menu == 'Region VII: Central Visayas':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -3523,52 +3879,88 @@ if menu == 'Region VIII: Eastern Visayas':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -3806,53 +4198,88 @@ if menu == 'Region IX: Zamboanga Peninsula':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
     firm_staff_obj.append(np.asarray(['test']))
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
 
     
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -4081,52 +4508,88 @@ if menu == 'Region X: Northern Mindanao':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -4361,52 +4824,88 @@ if menu == 'Region XI: Davao Region':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -4635,52 +5134,88 @@ if menu == 'Region XII: Soccsksargen':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
@@ -4909,52 +5444,88 @@ if menu == 'Region XIII: Caraga':
 
     # Labels
     label_objective = []
-    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38'])
-    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35'])
-    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23'])
-    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39'])
-    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40'])
-    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33'])
-    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28'])
-    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50'])
-    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36'])
+    label_objective.append(['Q6', 'Q12', 'Q20', 'Q37', 'Q38', 'OVERALL'])
+    label_objective.append(['Q4', 'Q7', 'Q9', 'Q34', 'Q35', 'OVERALL'])
+    label_objective.append(['Q2', 'Q3', 'Q10', 'Q22', 'Q23', 'OVERALL'])
+    label_objective.append(['Q15', 'Q16', 'Q17', 'Q24', 'Q39', 'OVERALL'])
+    label_objective.append(['Q1', 'Q10', 'Q31', 'Q32', 'Q40', 'OVERALL'])
+    label_objective.append(['Q5', 'Q19', 'Q21', 'Q29', 'Q33', 'OVERALL'])
+    label_objective.append(['Q13', 'Q14', 'Q18', 'Q28', 'OVERALL'])
+    label_objective.append(['Q41', 'Q42', 'Q43', 'Q44', 'Q45', 'Q46', 'Q47', 'Q48', 'Q49', 'Q50', 'OVERALL'])
+    label_objective.append(['Q8', 'Q26', 'Q27', 'Q30', 'Q36', 'OVERALL'])
 
     # Managers data
     firm_managers_obj = []
-    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]))
-    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]))
-
+    mean_mngr1 = np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[5], managers_mean[11], managers_mean[19], managers_mean[36], managers_mean[37], mean_mngr1 ]))
+    
+    mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
+    
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
+    
+    mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38], mean_mngr4 ]))
+    
+    mean_mngr5 = np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[0], managers_mean[9], managers_mean[30], managers_mean[31], managers_mean[39], mean_mngr5 ]))
+    
+    mean_mngr6 = np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[4], managers_mean[18], managers_mean[20], managers_mean[28], managers_mean[32],mean_mngr6 ]))
+    
+    mean_mngr7 = np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[12], managers_mean[13], managers_mean[1], managers_mean[27], mean_mngr7 ]))
+    
+    mean_mngr8 = np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[40], managers_mean[41], managers_mean[42], managers_mean[43], managers_mean[44], managers_mean[45], managers_mean[46], managers_mean[47], managers_mean[48], managers_mean[49], mean_mngr8 ]))
+        
+    mean_mngr9 = np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35] ]).mean()
+    firm_managers_obj.append(np.asarray([ managers_mean[7], managers_mean[25], managers_mean[26], managers_mean[29], managers_mean[35], mean_mngr9 ]))
 
     staff_mean = np.mean(np_firm_staff[:,59:99], axis=0)
     # Staff data
     firm_staff_obj = []
-    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]))
-    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]))
-    firm_staff_obj.append(['test'])
-    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]))
+    
+    mean_staff1 = np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[5], staff_mean[11], staff_mean[19], staff_mean[36], staff_mean[37], mean_staff1 ]))
+    
+    mean_staff2 = np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[2], staff_mean[6], staff_mean[8], staff_mean[33], staff_mean[34], mean_staff2 ]))
+    
+    mean_staff3 = np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[1], staff_mean[2], staff_mean[9], staff_mean[21], staff_mean[22], mean_staff3 ]))
+    
+    mean_staff4 = np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[14], staff_mean[15], staff_mean[16], staff_mean[23], staff_mean[38], mean_staff4 ]))
+    
+    mean_staff5 = np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[0], staff_mean[9], staff_mean[30], staff_mean[31], staff_mean[39], mean_staff5 ]))
+    
+    mean_staff6 = np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[4], staff_mean[18], staff_mean[20], staff_mean[28], staff_mean[32], mean_staff6 ]))
+    
+    mean_staff7 = np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[12], staff_mean[13], staff_mean[1], staff_mean[27], mean_staff7 ]))
+    
+    
+    firm_staff_obj.append(np.asarray(['test']))
+    
+    mean_staff9 = np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35] ]).mean()
+    firm_staff_obj.append(np.asarray([ staff_mean[7], staff_mean[25], staff_mean[26], staff_mean[29], staff_mean[35], mean_staff5 ]))
 
+
+    
     radar_df = pd.DataFrame({
         'group': ['Manager','Staff'],
-        'Objective 1': [firm_managers_obj[0].mean(), firm_staff_obj[0].mean()],
-        'Objective 2': [firm_managers_obj[1].mean(), firm_staff_obj[1].mean()],
-        'Objective 3': [firm_managers_obj[2].mean(), firm_staff_obj[2].mean()],
-        'Objective 4': [firm_managers_obj[3].mean(), firm_staff_obj[3].mean()],
-        'Objective 5': [firm_managers_obj[4].mean(), firm_staff_obj[4].mean()],
-        'Objective 6': [firm_managers_obj[5].mean(), firm_staff_obj[5].mean()],
-        'Objective 7': [firm_managers_obj[6].mean(), firm_staff_obj[6].mean()],
-        'Objective 9': [firm_managers_obj[8].mean(), firm_staff_obj[8].mean()]
+        'Objective 1': [firm_managers_obj[0][0:4].mean(), firm_staff_obj[0][0:4].mean()],
+        'Objective 2': [firm_managers_obj[1][0:4].mean(), firm_staff_obj[1][0:4].mean()],
+        'Objective 3': [firm_managers_obj[2][0:4].mean(), firm_staff_obj[2][0:4].mean()],
+        'Objective 4': [firm_managers_obj[3][0:4].mean(), firm_staff_obj[3][0:4].mean()],
+        'Objective 5': [firm_managers_obj[4][0:4].mean(), firm_staff_obj[4][0:4].mean()],
+        'Objective 6': [firm_managers_obj[5][0:4].mean(), firm_staff_obj[5][0:4].mean()],
+        'Objective 7': [firm_managers_obj[6][0:3].mean(), firm_staff_obj[6][0:3].mean()],
+        'Objective 9': [firm_managers_obj[8][0:4].mean(), firm_staff_obj[8][0:4].mean()]
         })
 
     row0_1, row0_2, row0_3 = st.columns((1,3,1))
