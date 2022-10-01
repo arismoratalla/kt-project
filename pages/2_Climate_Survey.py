@@ -312,7 +312,7 @@ if menu == 'Overall Results':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -815,7 +815,7 @@ if menu == 'Cordillera Administrative Region (CAR)':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -1124,7 +1124,7 @@ if menu == 'National Capital Region (NCR)':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -1433,7 +1433,7 @@ if menu == 'Region I: Ilocos Region':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -1750,7 +1750,7 @@ if menu == 'Region II: Cagayan Valley':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -2061,7 +2061,7 @@ if menu == 'Region III: Central Luzon':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -2378,7 +2378,7 @@ if menu == 'Region IV-A: Calabarzon':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -2689,7 +2689,7 @@ if menu == 'Region IV-B: (Mimaropa) Southwestern Tagalog Region':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -3000,7 +3000,7 @@ if menu == 'Region V: Bicol Region':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -3586,7 +3586,7 @@ if menu == 'Region VII: Central Visayas':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -3897,7 +3897,7 @@ if menu == 'Region VIII: Eastern Visayas':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -4216,7 +4216,7 @@ if menu == 'Region IX: Zamboanga Peninsula':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -4526,7 +4526,7 @@ if menu == 'Region X: Northern Mindanao':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -4842,7 +4842,7 @@ if menu == 'Region XI: Davao Region':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -5152,7 +5152,7 @@ if menu == 'Region XII: Soccsksargen':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
@@ -5462,7 +5462,7 @@ if menu == 'Region XIII: Caraga':
     mean_mngr2 = np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[3], managers_mean[6], managers_mean[8], managers_mean[33], managers_mean[34], mean_mngr2 ]))
     
-    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], 6.5 ]).mean()
+    mean_mngr3 = np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22] ]).mean()
     firm_managers_obj.append(np.asarray([ managers_mean[1], managers_mean[2], managers_mean[9], managers_mean[21], managers_mean[22], mean_mngr3 ]))
     
     mean_mngr4 = np.asarray([ managers_mean[14], managers_mean[15], managers_mean[16], managers_mean[23], managers_mean[38] ]).mean()
