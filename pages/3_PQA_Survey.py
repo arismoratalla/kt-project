@@ -64,7 +64,7 @@ beneficiaries.append(["Suki Trading Corporation"])
 beneficiaries.append(["Rodriguez Burger and Bread Corporation"])
 beneficiaries.append(["Diamond Noodles Factory", "Woodtech Builders"])
 beneficiaries.append(["SLERS Industries Inc."])
-beneficiaries.append(["Malagos Food Inc.", "Woodworks Collections, Inc."])
+beneficiaries.append(["Davao Beta Spring, Inc.", "Woodworks Collections, Inc."])
 beneficiaries.append(["Kablon Farm Food Corporation"])
 beneficiaries.append(["MAFFISCO-MPC"])
 
@@ -4060,7 +4060,7 @@ if menu == 'Region XI: Davao Region':
     toggle = True
 
     st.sidebar.title('Actions')
-    toggle = st.sidebar.button('Malagos Food Inc.')
+    toggle = st.sidebar.button('Davao Beta Spring, Inc.')
     toggle = st.sidebar.button('Woodworks Collections, Inc.')
 
     if toggle:
@@ -4072,7 +4072,7 @@ if menu == 'Region XI: Davao Region':
 #         st.write(firm_staff_df)
         
     else:
-        firm = 'Malagos Food Inc.'
+        firm = 'Davao Beta Spring, Inc.'
         st.subheader(firm)
         firm_management_df = pd.DataFrame( management_df[management_df["Name of Your Company:"] == firm] )
         firm_staff_df = pd.DataFrame( staff_df[staff_df["Name of Your Company:"] == firm] )
