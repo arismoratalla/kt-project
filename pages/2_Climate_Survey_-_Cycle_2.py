@@ -22,7 +22,7 @@ st.set_page_config(
 #     page_icon="👋",
 )
 
-survey_df = pd.read_csv('data/ktp_climate_survey_2nd_cycle.csv').reset_index()
+survey_df = pd.read_csv('data_cycle_2/ktp_climate_survey_2nd_cycle.csv').reset_index()
 np_survey_df = np.asarray(survey_df)
 
 managers = survey_df[survey_df["Are you part of Management or Staff?"] == "Management"]
@@ -4694,8 +4694,8 @@ if menu == 'Region XI: Davao Region':
     toggle = True
 
     st.sidebar.title('Actions')
-    toggle = st.sidebar.button('Davao Beta Spring, Inc.')
     toggle = st.sidebar.button('Woodworks Collections, Inc.')
+    toggle = st.sidebar.button('Davao Beta Spring, Inc.')
 
     region10_df = survey_df[survey_df["What region are you from?"] == region]
 
