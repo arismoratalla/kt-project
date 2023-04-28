@@ -70,7 +70,7 @@ beneficiaries.append(["Suki Trading Corporation"])
 beneficiaries.append(["Rodriguez Burger and Bread Corporation"])
 beneficiaries.append(["Diamond Noodles Factory", "Woodtech Builders"])
 beneficiaries.append(["SLERS Industries Inc."])
-beneficiaries.append(["Davao Beta Spring, Inc.", "Woodworks Collections, Inc."])
+beneficiaries.append(["Davao Beta Spring, Inc.", "Royal Buns Corporation"])
 beneficiaries.append(["Kablon Farm Food Corporation"])
 beneficiaries.append(["MAFFISCO-MPC"])
 # for beneficiary in beneficiaries:
@@ -4694,7 +4694,7 @@ if menu == 'Region XI: Davao Region':
     toggle = True
 
     st.sidebar.title('Actions')
-    toggle = st.sidebar.button('Woodworks Collections, Inc.')
+    toggle = st.sidebar.button('Royal Buns Corporation')
     toggle = st.sidebar.button('Davao Beta Spring, Inc.')
 
     region10_df = survey_df[survey_df["What region are you from?"] == region]
